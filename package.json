@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "eslint:fix": "eslint src/app/ --fix",
-    "eslint": "eslint src/app/",
+    "eslint": "eslint src/",
     "test": "jest",
     "test:watch": "jest --watch",
     "start": "webpack-dev-server --mode development --config webpack.config.dev.babel.js --open",
@@ -46,6 +46,7 @@
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^4.6.0",
+    "core-js": "^3.0.1",
     "css-loader": "^2.1.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
@@ -66,6 +67,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "redux-mock-store": "^1.5.3",
+    "regenerator-runtime": "^0.13.2",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.5",
@@ -78,7 +80,6 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.0",
-    "react-router-dom": "^4.3.1",
     "redux": "^4.0.1"
   }
 }

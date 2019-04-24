@@ -1,4 +1,5 @@
-import '@babel/polyfill';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 import webpack from 'webpack';
 
@@ -11,9 +12,10 @@ module.exports = {
     devtool: 'eval-source-map',
     entry: {
         main: [
-            '@babel/polyfill',
-            './src/app/index.js',
-            './src/css/main.scss',
+            'core-js/stable',
+            'regenerator-runtime/runtime',
+            './src/index.js',
+            // './src/css/main.scss',
         ],
     },
     output: {
