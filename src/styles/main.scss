@@ -1,7 +1,14 @@
 @import './reset.scss';
+@import './_common.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Teko:300,400,700');
 
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: $font;
+}
 
 .wrapper {
     padding: 0 30px;
