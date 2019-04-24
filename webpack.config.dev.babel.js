@@ -7,6 +7,11 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import autoprefixer from 'autoprefixer';
+import postcssMixins from 'postcss-mixins';
+import postcssSimpleVars from 'postcss-simple-vars';
+import postcssNested from 'postcss-nested';
+import postcssSimpleExtend from 'postcss-simple-extend';
+import postcsspartialImport from 'postcss-partial-import';
 
 module.exports = {
     devtool: 'eval-source-map',
@@ -15,7 +20,7 @@ module.exports = {
             'core-js/stable',
             'regenerator-runtime/runtime',
             './src/index.js',
-            // './src/css/main.scss',
+            './src/styles/main.scss',
         ],
     },
     output: {
@@ -57,6 +62,11 @@ module.exports = {
                             sourceMap: true,
                             plugins: [
                                 autoprefixer,
+                                postcsspartialImport,
+                                postcssMixins,
+                                postcssNested,
+                                postcssSimpleExtend,
+                                postcssSimpleVars,
                             ],
                         },
                     },
@@ -78,7 +88,7 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([
-            { from: 'src/img', to: 'img' },
+            { from: 'src/assets', to: 'assets' },
         ]),
         new webpack.SourceMapDevToolPlugin({
             filename: '[name].js.map',
