@@ -1,0 +1,24 @@
+plugins:
+  - babel
+  - jest
+  - react
+
+extends:
+  - airbnb-base
+  - "plugin:jest/recommended"
+  - "plugin:react/recommended"
+
+parser: babel-eslint
+
+rules:
+  indent: ["error", 4, { "SwitchCase": 1 }]
+  class-methods-use-this: ["off"]
+
+env:
+  browser: true
+  node: true
+  jest: true
+
+settings:
+  react:
+    version: detect
