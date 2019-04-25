@@ -1,0 +1,26 @@
+@import '../_common.scss';
+
+.text-button {
+    align-self: flex-end;
+    display: inline-block;
+    box-sizing: content-box;
+    box-shadow: 0 3px 6px #818181;
+    max-width: 200px;
+    min-height: 33px;
+    margin-top: 0px;
+    padding: 4px 19px;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    background-color: $red;
+
+    &:hover {
+        transform: rotate(360deg);
+        transition: transform 0.3s;
+    }
+}

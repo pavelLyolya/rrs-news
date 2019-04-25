@@ -5,6 +5,7 @@ import uniqid from 'uniqid';
 import '../../styles/Content/NewsList.scss';
 import SectionHeader from './SectionHeader';
 import NewsItem from './NewsItem';
+import Button from './Button';
 
 const NewsList = ({ newsList }) => (
     <section className='news-list list'>
@@ -14,6 +15,7 @@ const NewsList = ({ newsList }) => (
             key={uniqid()}
             news={news}
         />))}
+        <Button name='More' />
     </section>
 );
 
