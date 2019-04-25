@@ -3,10 +3,21 @@ import { NEWS } from '../actions/types';
 const defaultState = {
     isLoading: false,
     newsList: [],
+    shownNews: [],
+    howMuchIsShown: 5,
     error: null,
 };
 
-const news = (state = defaultState, { type, newsList, error }) => {
+const news = (
+    state = defaultState,
+    {
+        type,
+        newsList,
+        error,
+        shownNews,
+        howMuchIsShown,
+    },
+) => {
     switch (type) {
         case NEWS.REQUEST_NEWS:
             return {
@@ -24,6 +35,12 @@ const news = (state = defaultState, { type, newsList, error }) => {
                 ...state,
                 isLoading: false,
                 error,
+            };
+        case NEWS.ADD_SHOWN_NEWS:
+            return {
+                ...state,
+                shownNews,
+                howMuchIsShown,
             };
         default:
             return state;

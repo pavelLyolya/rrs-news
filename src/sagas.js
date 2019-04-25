@@ -1,7 +1,7 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { NEWS, SOURCES } from './actions/types';
 import { fetchNewsFromApi, fetchSourcesFromApi } from './api';
-import { newsGot, newsRequestError } from './actions/newsActions';
+import { newsGot, newsRequestError, addShownNews } from './actions/newsActions';
 import { sourcesGot, sourcesRequestError } from './actions/sourcesActions';
 import sortSourcesByNames from './helpers/sortSourcesByNames';
 
@@ -9,6 +9,7 @@ function* fetchNews() {
     try {
         const response = yield call(fetchNewsFromApi);
         yield put(newsGot(response.articles));
+        yield put(addShownNews(response.articles));
     } catch (error) {
         yield put(newsRequestError(error));
     }
