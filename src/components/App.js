@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Header from './Header/Header';
+import Content from './Content/Content';
 import Footer from './Footer';
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
         return (
             <Fragment>
                 <Header />
+                <Content />
                 <Footer />
             </Fragment>
         );
