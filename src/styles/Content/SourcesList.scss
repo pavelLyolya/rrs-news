@@ -14,11 +14,15 @@
 .dropdown {
     position: relative;
     width: 100%;
+
+    &:not(:first-child) {
+        border-top: 1px solid #ffb375;
+    }
       
     [data-toggle="dropdown"] {
         display: block;
         color: #ffffff;
-        background-color: #ff5e00;
+        background-color: #ff853e;
         padding: 10px;
       
         &:before {
