@@ -40,7 +40,7 @@ NewsList.propTypes = {
     shownNews: PropTypes.array,
     howMuchIsShown: PropTypes.number,
     isLoading: PropTypes.bool,
-    error: PropTypes.string,
+    error: PropTypes.object,
     requestNews: PropTypes.func,
     addShownNews: PropTypes.func,
 };

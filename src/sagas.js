@@ -5,9 +5,14 @@ import { newsGot, newsRequestError, addShownNews } from './actions/newsActions';
 import { sourcesGot, sourcesRequestError } from './actions/sourcesActions';
 import sortSourcesByNames from './helpers/sortSourcesByNames';
 
-function* fetchNews() {
+function* fetchNews(action) {
     try {
-        const response = yield call(fetchNewsFromApi);
+        let response;
+        if (action.sourceId) {
+            response = yield call(fetchNewsFromApi, action.sourceId);
+        } else {
+            response = yield call(fetchNewsFromApi);
+        }
         yield put(newsGot(response.articles));
         yield put(addShownNews(response.articles));
     } catch (error) {

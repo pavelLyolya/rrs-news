@@ -2,6 +2,11 @@ import { NEWS } from './types';
 
 export const requestNews = () => ({ type: NEWS.REQUEST_NEWS });
 
+export const requestNewsFromTheSource = sourceId => ({
+    type: NEWS.REQUEST_NEWS,
+    sourceId,
+});
+
 export const newsGot = newsList => ({
     type: NEWS.REQUEST_NEWS_SUCCESS,
     newsList,

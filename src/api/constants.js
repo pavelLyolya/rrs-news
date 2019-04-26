@@ -4,7 +4,10 @@ export const baseUrl = 'https://newsapi.org/v2';
 
 export const topHeadlines = '/top-headlines';
 
-export const defaultCountry = 'country=us';
-export const defaultPageSize = 'pageSize=40';
-
 export const sources = '/sources';
+
+export const params = {
+    defaultCountry: 'country=us',
+    defaultPageSize: 'pageSize=40',
+    sources: 'sources=',
+};

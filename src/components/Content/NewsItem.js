@@ -13,7 +13,7 @@ const NewsItem = ({ news }) => (
             <div className='post-info'>
                 <span className='post-info_row'>
                     <span className='post-info_row__thin'>Author:</span>
-                    {news.author}
+                    {news.author || 'Unknown Author'}
                 </span>
                 <span className='post-info_row'>
                     <span className='post-info_row__thin'>Published at:</span>

@@ -28,7 +28,7 @@ const news = (
             return {
                 ...state,
                 isLoading: false,
-                newsList: state.newsList.concat(newsList),
+                newsList,
             };
         case NEWS.REQUEST_NEWS_ERROR:
             return {

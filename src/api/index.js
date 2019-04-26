@@ -4,8 +4,7 @@ import {
     apiKey,
     topHeadlines,
     sources,
-    defaultCountry,
-    defaultPageSize,
+    params,
 } from './constants';
 
 export const api = axios.create({
@@ -14,8 +13,13 @@ export const api = axios.create({
 });
 
 
-export const fetchNewsFromApi = async () => {
-    const { data } = await api.get(`${topHeadlines}?${defaultCountry}&${defaultPageSize}`);
+export const fetchNewsFromApi = async (requiredSource = null) => {
+    let data;
+    if (requiredSource) {
+        ({ data } = await api.get(`${topHeadlines}?${params.defaultPageSize}&${params.sources}${requiredSource}`));
+    } else {
+        ({ data } = await api.get(`${topHeadlines}?${params.defaultCountry}&${params.defaultPageSize}`));
+    }
     return data;
 };
 
