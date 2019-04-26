@@ -13,10 +13,13 @@ export const api = axios.create({
 });
 
 
-export const fetchNewsFromApi = async (requiredSource = null) => {
+export const fetchNewsFromApi = async (requiredSource = null, query = null) => {
     let data;
     if (requiredSource) {
         ({ data } = await api.get(`${topHeadlines}?${params.defaultPageSize}&${params.sources}${requiredSource}`));
+    } else if (query) {
+        console.log(`${topHeadlines}?${params.defaultPageSize}&${params.query}${query}`);
+        ({ data } = await api.get(`${topHeadlines}?${params.defaultPageSize}&${params.query}${query}`));
     } else {
         ({ data } = await api.get(`${topHeadlines}?${params.defaultCountry}&${params.defaultPageSize}`));
     }

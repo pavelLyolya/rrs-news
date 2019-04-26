@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import SourcesList from '../components/Content/SourcesList';
 import { requestSources } from '../actions/sourcesActions';
-import { requestNewsFromTheSource } from '../actions/newsActions';
+import { requestNewsByQuery, requestNewsFromTheSource } from '../actions/newsActions';
 
 const mapStateToProps = state => ({
     sourcesSortedList: state.sources.sourcesSortedList,
@@ -12,7 +12,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     requestSources: () => dispatch(requestSources()),
-    requestNewsFromTheSource: sourceId => dispatch(requestNewsFromTheSource(sourceId)),
+    requestNewsFromTheSource: (sourceId) => {
+        dispatch(requestNewsByQuery(null));
+        dispatch(requestNewsFromTheSource(sourceId));
+    },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SourcesList);

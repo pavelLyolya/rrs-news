@@ -21,6 +21,10 @@ class NewsList extends Component {
         return (
             <section className='news-list list'>
                 <SectionHeader headerName='News' />
+                {
+                    !this.props.isLoading && this.props.newsList.length === 0
+                        && <p className='message'>There are no articles matching your request...</p>
+                }
                 {this.props.shownNews && this.props.shownNews.map(news => (<NewsItem
                     key={uniqid()}
                     news={news}

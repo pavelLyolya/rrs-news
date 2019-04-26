@@ -7,6 +7,11 @@ export const requestNewsFromTheSource = sourceId => ({
     sourceId,
 });
 
+export const requestNewsByQuery = query => ({
+    type: NEWS.REQUEST_NEWS,
+    query,
+});
+
 export const newsGot = newsList => ({
     type: NEWS.REQUEST_NEWS_SUCCESS,
     newsList,

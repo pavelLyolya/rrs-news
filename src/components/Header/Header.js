@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchRow from './SearchRow';
+import SearchRow from '../../containers/SearchRowContainer';
 import '../../styles/Header/Header.scss';
 
 const Header = () => (

@@ -10,4 +10,5 @@ export const params = {
     defaultCountry: 'country=us',
     defaultPageSize: 'pageSize=40',
     sources: 'sources=',
+    query: 'q=',
 };

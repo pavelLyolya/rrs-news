@@ -10,6 +10,8 @@ function* fetchNews(action) {
         let response;
         if (action.sourceId) {
             response = yield call(fetchNewsFromApi, action.sourceId);
+        } else if (action.query) {
+            response = yield call(fetchNewsFromApi, null, action.query);
         } else {
             response = yield call(fetchNewsFromApi);
         }
