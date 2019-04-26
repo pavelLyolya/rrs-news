@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 import { NEWS, SOURCES } from './actions/types';
 import { fetchNewsFromApi, fetchSourcesFromApi } from './api';
 import { newsGot, newsRequestError, addShownNews } from './actions/newsActions';
@@ -33,6 +33,6 @@ function* fetchSources() {
 }
 
 export default function* rootSaga() {
-    yield takeEvery(NEWS.REQUEST_NEWS, fetchNews);
-    yield takeEvery(SOURCES.REQUEST_SOURCES, fetchSources);
+    yield takeLatest(NEWS.REQUEST_NEWS, fetchNews);
+    yield takeLatest(SOURCES.REQUEST_SOURCES, fetchSources);
 }

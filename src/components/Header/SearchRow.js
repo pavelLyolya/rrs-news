@@ -3,20 +3,18 @@ import PropTypes from 'prop-types';
 import '../../styles/Header/SearchRow.scss';
 
 class SearchRow extends Component {
-    state = {
-        currentInputValue: '',
-    }
+    currentInputValue = '';
 
-    changeInput = e => this.setState({
-        currentInputValue: e.target.value,
-    })
+    changeInput = (e) => {
+        this.currentInputValue = e.target.value;
+    }
 
     requestNewsByQuery = (e) => {
         e.preventDefault();
-        if (this.state.currentInputValue === '') {
+        if (this.currentInputValue === '') {
             this.props.requestNewsByQuery(null);
         } else {
-            this.props.requestNewsByQuery(this.state.currentInputValue);
+            this.props.requestNewsByQuery(this.currentInputValue);
         }
     }
 
