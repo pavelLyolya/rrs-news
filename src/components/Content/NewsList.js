@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PropagateLoader } from 'react-spinners';
 import uniqid from 'uniqid';
-import '../../styles/Content/NewsList.scss';
 import SectionHeader from './SectionHeader';
 import NewsItem from './NewsItem';
 import Button from './Button';
