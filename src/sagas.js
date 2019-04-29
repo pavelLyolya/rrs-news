@@ -5,7 +5,7 @@ import { newsGot, newsRequestError, addShownNews } from './actions/newsActions';
 import { sourcesGot, sourcesRequestError } from './actions/sourcesActions';
 import sortSourcesByNames from './helpers/sortSourcesByNames';
 
-function* fetchNews(action) {
+export function* fetchNews(action) {
     try {
         let response;
         if (action.sourceId) {
@@ -22,7 +22,7 @@ function* fetchNews(action) {
     }
 }
 
-function* fetchSources() {
+export function* fetchSources() {
     try {
         const response = yield call(fetchSourcesFromApi);
         const sortedSources = sortSourcesByNames(response.sources);
