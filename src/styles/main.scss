@@ -5,23 +5,23 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,400,700');
 
 #root {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-family: $font-teko;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-family: $font-teko;
 }
 
 .wrapper {
-    padding-right: 30px;
-    padding-left: 30px;
+	padding-right: 30px;
+	padding-left: 30px;
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .message {
-    font-size: 25px;
+	font-size: 25px;
 }
