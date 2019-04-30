@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import Header from './Header/Header';
+import Content from './Content/Content';
+import Footer from './Footer';
 
-class App extends React.Component {
+class App extends Component {
     render() {
         return (
-            <h1>Hi there!</h1>
+            <Fragment>
+                <Header />
+                <Content />
+                <Footer />
+            </Fragment>
         );
     }
 }

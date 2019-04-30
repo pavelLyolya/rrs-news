@@ -1,0 +1,12 @@
+@import '../_common.scss';
+
+.section-header {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 30px;
+	border: $red solid 2px;
+	box-shadow: 0 5px 10px #818181;
+	background-color: #ffb3b3;
+	font-size: 30px;
+	font-weight: 700;
+}
