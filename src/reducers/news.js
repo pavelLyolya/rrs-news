@@ -1,6 +1,6 @@
 import { NEWS } from '../actions/types';
 
-const defaultState = {
+export const defaultState = {
     isLoading: false,
     newsList: [],
     shownNews: [],

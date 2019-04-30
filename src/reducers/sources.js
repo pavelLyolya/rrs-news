@@ -1,6 +1,6 @@
 import { SOURCES } from '../actions/types';
 
-const defaultState = {
+export const defaultState = {
     isLoading: false,
     sourcesSortedList: [],
     error: null,

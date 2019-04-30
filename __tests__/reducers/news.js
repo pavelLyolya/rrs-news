@@ -1,17 +1,10 @@
 import { NEWS } from '../../src/actions/types';
-import news from '../../src/reducers/news';
+import news, { defaultState } from '../../src/reducers/news';
 
 describe('News reducer', () => {
     test('INITIAL STATE is correct', () => {
-        const initialState = {
-            isLoading: false,
-            newsList: [],
-            shownNews: [],
-            howMuchIsShown: 5,
-            error: null,
-        };
         const action = { type: 'UNKNOWN_TYPE' };
-        expect(news(undefined, action)).toEqual(initialState);
+        expect(news(undefined, action)).toEqual(defaultState);
     });
 
     test('isLoading changes while requesting', () => {
@@ -19,11 +12,8 @@ describe('News reducer', () => {
             type: NEWS.REQUEST_NEWS,
         };
         const expectedState = {
+            ...defaultState,
             isLoading: true,
-            newsList: [],
-            shownNews: [],
-            howMuchIsShown: 5,
-            error: null,
         };
         expect(news(undefined, action)).toEqual(expectedState);
     });
@@ -44,11 +34,8 @@ describe('News reducer', () => {
             newsList,
         };
         const expectedState = {
-            isLoading: false,
+            ...defaultState,
             newsList,
-            shownNews: [],
-            howMuchIsShown: 5,
-            error: null,
         };
         expect(news(undefined, action)).toEqual(expectedState);
     });
@@ -60,10 +47,7 @@ describe('News reducer', () => {
             error,
         };
         const expectedState = {
-            isLoading: false,
-            newsList: [],
-            shownNews: [],
-            howMuchIsShown: 5,
+            ...defaultState,
             error,
         };
         expect(news(undefined, action)).toEqual(expectedState);
@@ -83,11 +67,9 @@ describe('News reducer', () => {
             howMuchIsShown,
         };
         const expectedState = {
-            isLoading: false,
-            newsList: [],
+            ...defaultState,
             shownNews,
-            howMuchIsShown: 1,
-            error: null,
+            howMuchIsShown,
         };
         expect(news(undefined, action)).toEqual(expectedState);
     });

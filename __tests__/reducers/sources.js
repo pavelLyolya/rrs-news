@@ -1,15 +1,10 @@
 import { SOURCES } from '../../src/actions/types';
-import sources from '../../src/reducers/sources';
+import sources, { defaultState } from '../../src/reducers/sources';
 
 describe('Sources reducer', () => {
     test('INITIAL STATE is correct', () => {
-        const initialState = {
-            isLoading: false,
-            sourcesSortedList: [],
-            error: null,
-        };
         const action = { type: 'UNKNOWN_TYPE' };
-        expect(sources(undefined, action)).toEqual(initialState);
+        expect(sources(undefined, action)).toEqual(defaultState);
     });
 
     test('isLoading changes while requesting', () => {
@@ -17,9 +12,8 @@ describe('Sources reducer', () => {
             type: SOURCES.REQUEST_SOURCES,
         };
         const expectedState = {
+            ...defaultState,
             isLoading: true,
-            sourcesSortedList: [],
-            error: null,
         };
         expect(sources(undefined, action)).toEqual(expectedState);
     });
@@ -40,9 +34,8 @@ describe('Sources reducer', () => {
             sourcesSortedList,
         };
         const expectedState = {
-            isLoading: false,
+            ...defaultState,
             sourcesSortedList,
-            error: null,
         };
         expect(sources(undefined, action)).toEqual(expectedState);
     });
@@ -54,8 +47,7 @@ describe('Sources reducer', () => {
             error,
         };
         const expectedState = {
-            isLoading: false,
-            sourcesSortedList: [],
+            ...defaultState,
             error,
         };
         expect(sources(undefined, action)).toEqual(expectedState);
