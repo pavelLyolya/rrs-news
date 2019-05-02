@@ -1,7 +1,13 @@
-import '@babel/polyfill';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import path from 'path';
 import webpack from 'webpack';
 import autoprefixer from 'autoprefixer';
+import postcssMixins from 'postcss-mixins';
+import postcssSimpleVars from 'postcss-simple-vars';
+import postcssNested from 'postcss-nested';
+import postcssSimpleExtend from 'postcss-simple-extend';
+import postcsspartialImport from 'postcss-partial-import';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
@@ -14,9 +20,10 @@ module.exports = {
     devtool: false,
     entry: {
         main: [
-            '@babel/polyfill',
-            './src/app/index.js',
-            './src/css/main.scss',
+            'core-js/stable',
+            'regenerator-runtime/runtime',
+            './src/index.js',
+            './src/styles/main.scss',
         ],
     },
     output: {
@@ -52,12 +59,13 @@ module.exports = {
                             sourceMap: true,
                             plugins: [
                                 autoprefixer,
+                                postcsspartialImport,
+                                postcssMixins,
+                                postcssNested,
+                                postcssSimpleExtend,
+                                postcssSimpleVars,
                             ],
                         },
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: { sourceMap: true },
                     },
                 ],
             },
@@ -65,7 +73,7 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([
-            { from: 'src/img', to: 'img' },
+            { from: 'src/assets', to: 'assets' },
         ]),
         new webpack.SourceMapDevToolPlugin({
             filename: '[name].js.map',
